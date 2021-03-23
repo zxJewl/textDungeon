@@ -1,0 +1,15 @@
+{
+    "slime": [15, 1, 2, 0.05],
+    "slimeDrop": [
+        "Slime goo",
+        "Health Potion",
+        "empty"
+    ],
+
+    "Rat": [10, 5, 5, 0],
+    "RatDrop": [
+        "Some disturbing meat, mabye you can eat it?"
+    ]
+
+
+}

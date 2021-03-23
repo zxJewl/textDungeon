@@ -1,0 +1,10 @@
+
+    You requested help?
+
+    Here's some basic commands:
+    
+        stats: brings up all of your current stats, health, attack, speed etc
+        help: brings up this menu
+        inventory: brings up your inventory.
+        look: brings up a description of your current location.
+        actions: brings up a list of actions you can do in the current room

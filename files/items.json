@@ -1,0 +1,7 @@
+{
+    "healables":[
+        "Health Potion"
+    ],
+    "Health Potion": "healable",
+    "health potionStats": 5
+}

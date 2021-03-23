@@ -1,0 +1,42 @@
+{
+    "room0": [
+        "",
+        "   You look around. You seem to be in a bland room.",
+        "   There is a desk lining one wall, and a cupboard in the corner.",    
+        "   A heavy wooden door is set into the white walls.",
+        ""
+        ],
+    "cmdRoom0": [
+        "",
+        "   'Go through the wooden door' - leave the starting room",
+        ""
+    ],
+
+    "room1": [
+        "",
+        "   You are standing in a long white-washed hallway.",
+        "   Behind you is the heavy wooden door that leads to the room you first woke up in.",    
+        "   To your right is a room marked 'DANGER! TEST ROOM'",
+        ""
+        ],
+    "cmdRoom1": [
+        "",
+        "   'Go right' - go into the Test Room",
+        ""
+    ],
+
+    "room2": [
+        "",
+        "   You are standing in a room.",
+        "   There is a weird slime that seems to be moving.",    
+        "   Mabye you should avoid it, although you might learn more by fighting it.",
+        " "
+        ],
+    "cmdRoom2": [
+        "",
+        "   'Fight the slime' - Engage the slime!",
+        "   'Leave the room' - go back to the hallway",
+        ""
+    ]
+    
+}

@@ -1,0 +1,15 @@
+
+    ~~!!~~                                                                                                          ~~!!~~ 
+      ||      This is a small text adventure game using the console.                                                  ||
+      ||      Here are some simple rules and tips:                                                                    ||                                        
+      ||                                                                                                              ||
+      ||          Please use proper capitilization when typing "action" commands such as 'Go through that door',      ||                                                                                                        
+      ||          no need for full stops though.                                                                      ||                                        
+      ||                                                                                                              ||
+      ||          You can see your stats at any time by typing 'stats'                                                ||                                                            
+      ||                                                                                                              ||
+      ||          To see a list of commands simply type 'help'                                                        ||                                                    
+      ||                                                                                                              ||    
+      ||      I hope you enjoy :)                                                                                     ||                        
+      ||                                                                                                              ||
+    ~~!!~~                                                                                                          ~~!!~~                    
