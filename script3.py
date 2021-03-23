@@ -9,11 +9,15 @@ class Database:
         self.cur.execute("CREATE TABLE IF NOT EXISTS inventory (id INTEGER PRIMARY KEY, item text, amount integer)")
         self.conn.commit()
 
+    #comand to insert items
     def insert(self, item, amount):
+        #test to see if item exists
         self.cur.execute("Select * from inventory where item = ?", (item, ))
         test=self.cur.fetchall()
+        #if it does not, create a new entry for said item
         if len(test)==0:
             self.cur.execute("INSERT INTO inventory VALUES (NULL, ?,?)", (item,amount))
+        #if it does exist, update amount
         else:
             self.cur.execute("SELECT * FROM inventory WHERE item=?", (item, ))
             am=self.cur.fetchall() 

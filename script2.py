@@ -24,6 +24,12 @@ l2.grid(row=1,column=1)
 l3=Label(window,text="",width=5)
 l3.grid(row=1,column=200)
 
+l4=Label(window,text="")
+l4.grid(row=6,column=1)
+
+l5=Label(window,text="Inventory:")
+l5.grid(row=7,column=0)
+
 enemyLabel=Label(window,text="Enemy Stats: ")
 enemyLabel.grid(row=0,column=99)
 ##!! ENTRIES !!##
@@ -44,8 +50,15 @@ eList.grid(row=0,column=100,columnspan=1)
 bgc.enemyStat()
 
 invList=Listbox(window,height=10,width=100)
-invList.grid(row=6,column=1,columnspan=100)
+invList.grid(row=7,column=1,columnspan=100)
 bgc.viewINV()
+
+sb1=Scrollbar(window)
+sb1.grid(row=7,column=101,rowspan=6)
+
+invList.configure(yscrollcommand=sb1.set)
+sb1.configure(command=invList.yview)
+
 #<
 
 #> Main Text Window
