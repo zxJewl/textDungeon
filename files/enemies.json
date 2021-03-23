@@ -2,8 +2,7 @@
     "slime": [15, 1, 2, 0.05],
     "slimeDrop": [
         "Slime goo",
-        "Health Potion",
-        "empty"
+        "Health Potion"
     ],
 
     "Rat": [10, 5, 5, 0],
