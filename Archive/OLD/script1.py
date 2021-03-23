@@ -32,24 +32,15 @@ def statChange():
     statTXT=("Health: %s Attack: %s Speed: %s" % (hp, atk, sp))
     list1.insert(END,statTXT)
 
-def search(num):
-    for item in roomJsn["room"+str(num)]:
-        text1.insert(END, item + "\n")
-
-def simpleLogic(query):
-    if query == "look":
-        return search(roomNum)
-
 def cmd_function():
     print(cmd_txt.get().lower())
-    print(script2.test)
-    simpleLogic(cmd_txt.get().lower())
-    statChange()
+    script2.runLogic1(cmd_txt.get().lower())
+    list2.insert(END, script2.search())
 
 def txtInsert(num):
     for item in messageJsn["msg"+str(num)]:
         print(item)
-        text1.insert(END, item + '\n' )
+        list2.insert(END, item)
 
 
 
@@ -65,8 +56,6 @@ l1.grid(row=0,column=0)
 l2=Label(window,text="")
 l2.grid(row=1,column=1)
 
-l3=Label(window,text="",width=5)
-l3.grid(row=1,column=200)
 ##!! ENTRIES !!##
 
 cmd_txt=StringVar()
@@ -81,9 +70,14 @@ statChange()
 #<
 
 #> Main Text Window
-text1=Text(window,width=90, height=20)
-text1.grid(row=1,column=1,columnspan=190)
-text1.bind("<Key>", lambda e: "break")
+list2=Listbox(window,width=100, height=20)
+list2.grid(row=1,column=1,columnspan=100)
+
+sb1=Scrollbar(window)
+sb1.grid(row=1,column=101,rowspan=10)
+
+list2.configure(yscrollcommand=sb1.set)
+sb1.configure(command=list2.yview)
 
 txtInsert("Start")
 #<
@@ -92,8 +86,6 @@ txtInsert("Start")
 
 b1=Button(window,text="Command:",command=cmd_function)
 b1.grid(row=2,column=0)
-
-
 
 pholder1=Button(window,text="Change HP", width=12,command=hp_change)
 pholder1.grid(row=3,column=1)

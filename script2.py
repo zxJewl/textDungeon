@@ -1,63 +1,60 @@
-import json
 from tkinter import *
+import json
+import script1
 
-# player stats
-hp = 20
-st = 0
-sp = 5
-df = 0.05
-atk = 5
+bgc=script1
 
-#slime stats
-slhp = 15
-slatk = 1
-slsp = 2
-sldf = 0
+global cmd_txt
 
-gameStop = False
-note1 = True
-engaged = False
-global ent1
-ent1 = False
-global enemy
-enemy = "slime"
+##!!! MAIN WINDOW !!!##
+window = Tk()
+window.wm_title("Text Dungeon")
 
-global hl1
-global hl2
-hl1 = False
-hl2 = False
+##!! LABELS !!##
 
-global inv 
-inv = [""]
+l1=Label(window,text="Stats:")
+l1.grid(row=0,column=0)
 
-global roomJsn
-roomJsn = json.load(open("files/Rooms.json"))
+l2=Label(window,text="")
+l2.grid(row=1,column=1)
 
-global opponent
-opponent = json.load(open("files/enemies.json"))
+l3=Label(window,text="",width=5)
+l3.grid(row=1,column=200)
+##!! ENTRIES !!##
 
-global items
-items = json.load(open("files/items.json"))
+global cmd_txt
+cmd_txt=StringVar()
+e1=Entry(window,textvariable=cmd_txt,width=100)
+e1.grid(row=2,column=1,columnspan=100)
+
+##!! LISTS !!##
+#> Stat Box
+list1=Listbox(window,height=1,width=40)
+list1.grid(row=0,column=1,columnspan=4)
+bgc.statChange()
+#<
+
+#> Main Text Window
+text1=Text(window,width=90, height=20)
+text1.grid(row=1,column=1,columnspan=190)
+text1.bind("<Key>", lambda e: "break")
+
+bgc.txtInsert("Start")
+#<
+
+##!! BUTTONS !!##
+
+b1=Button(window,text="Command:",command=bgc.cmd_function)
+b1.grid(row=2,column=0)
 
 
-global roomNum
-roomNum = 0
 
-global test
-test = True
+pholder1=Button(window,text="Change HP", width=12,command=bgc.hp_change)
+pholder1.grid(row=3,column=1)
 
-def insert(txt):
-    list2.insert(txt)
+pholder2=Button(window,text="Show HP", width=12,command=bgc.hp_show)
+pholder2.grid(row=3,column=2)
 
-def search(num):
-    for item in roomJsn["room"+str(num)]:
-        srchOUT=item
 
-def runLogic1(cmd):
-    if cmd == "look":
-        print("Command = look")
-        search(roomNum)
-        print(search(roomNum))
-        return search(roomNum)
-        
-        
+
+window.mainloop()
