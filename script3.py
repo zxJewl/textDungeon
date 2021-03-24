@@ -27,7 +27,12 @@ class Database:
             self.cur.execute("UPDATE inventory SET amount=? WHERE item=?",(am,item))
         self.conn.commit()
         script1.viewINV()
-
+        
+    def delete(self, id):
+        self.cur.execute("DELETE FROM inventory WHERE item=?",(id,))
+        print("deleted: %s" % (id))
+        self.conn.commit()
+        script1.viewINV()
 
     def view(self):
         self.cur.execute("SELECT * FROM inventory")
@@ -39,9 +44,7 @@ class Database:
         rows=self.cur.fetchall() 
         return rows
 
-    def delete(self, id):
-        self.cur.execute("DELETE FROM book WHERE id=?",(id,))
-        self.conn.commit()
+
 
     def update(self, id, title,author,year,isbn):
         self.cur.execute("UPDATE book SET title=?, author=?, year=?, isbn=? WHERE id=?",(title,author,year,isbn, id))

@@ -5,9 +5,12 @@ import script1
 def buttonOPEN():
     import buttons
 
+
 bgc=script1
 
+
 global cmd_txt
+
 
 ##!!! MAIN WINDOW !!!##
 window = Tk()
@@ -53,6 +56,7 @@ invList=Listbox(window,height=10,width=100)
 invList.grid(row=7,column=1,columnspan=100)
 bgc.viewINV()
 
+
 sb1=Scrollbar(window)
 sb1.grid(row=7,column=101,rowspan=6)
 
@@ -64,6 +68,7 @@ sb1.configure(command=invList.yview)
 #> Main Text Window
 text1=Text(window,width=90, height=20)
 text1.grid(row=1,column=1,columnspan=190,rowspan=4)
+text1.see("end")
 text1.bind("<Key>", lambda e: "break")
 
 bgc.msgInsert("Start")
@@ -82,8 +87,8 @@ pholder1.grid(row=2,column=0)
 
 pholder2=Button(window,text="Show HP", width=12,command=bgc.hp_show)
 pholder2.grid(row=3,column=0)
-pholder2=Button(window,text="ADMIN", width=12,command=buttonOPEN)
-pholder2.grid(row=4,column=0)
+pholder3=Button(window,text="ADMIN", width=12,command=buttonOPEN)
+pholder3.grid(row=4,column=0)
 
 
 

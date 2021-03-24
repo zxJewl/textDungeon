@@ -19,7 +19,7 @@ global Ehp
 global Eatk
 global Esp
 global Edef
-Ehp  = 0
+Ehp  = 1
 Eatk = 0
 Esp  = 0
 Edef = 0
@@ -59,9 +59,14 @@ def enemyStat():
     ui.eList.delete(0, END)
     EstatTXT=("Health: %s Attack: %s Speed: %s" % (Ehp, Eatk, Esp))
     if engaged == False:
+        ui.eList.delete(0,END)
         ui.eList.insert(END, "You are curently unengaged")
+    elif engaged == True:
+        ui.eList.delete(0,END)
+        ui.eList.insert(END, EstatTXT)
+        print("Elist has engaged")
     else:
-        ui.eList.insert(EstatTXT)
+        ui.eList.insert("EROOR")
 
 def viewINV():
     ui.invList.delete(0,END)
@@ -76,10 +81,12 @@ def hep():
 
 def actions(num):
     for item in roomJsn["cmdRoom"+str(num)]:
-        ui.text1.insert(END, item)
+        ui.text1.insert(END, item+'\n')
+        ui.text1.see(END)
 
 def insertUI(info):
     ui.text1.insert(END, info)
+    ui.text1.see(END)
 
 def door1():
     global roomNum
@@ -119,8 +126,14 @@ def simpleLogic(query):
 
     if query == "actions":
         actions(roomNum)
+    
+    enemyStat()
+    
 
 def roomLogic(query):
+    if query == "delete":
+        ui.eList.delete(0,END)
+        print("BUG01")
     global roomNum
     if roomNum == 0:
         if query == "go through the wooden door":
@@ -131,10 +144,28 @@ def roomLogic(query):
         if query == "go through the wooden door":
             door1()
             query=""    
-        if query == "go right":
+        if query == "go right": 
             insertUI("   You go into the room marked 'DANGER'")
             roomNum=2
             search(roomNum)
+    
+    #room 2 logic
+    if roomNum == 2:
+
+        if query == "leave the room":
+            print("")
+            insertUI("    You exit the DANGEROUS room, thankfull to have leave it behind.")
+            print("")
+            roomNum = 1
+            search(roomNum)  
+
+        if query == "fight the slime":
+            global engaged
+            engaged=True
+            enemyStat()
+            #fight()
+            print("ENGAGED")
+
 
 def cmd_function():
     print(ui.cmd_txt.get().lower())
